@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import 'github-calendar/dist/github-calendar-responsive.css';
 import GitHubCalendar from 'github-calendar';
@@ -22,7 +22,7 @@ const UserCard = (props) => {
             </Header>
             
             <div>{props.myDetails.bio}</div>
-            <div><a href={props.myDetails.html_url} target="_blank"><Icon name="globe" color="grey" /> {(props.myDetails.html_url) ? props.myDetails.html_url.split('//')[1] : ''}</a></div>
+            <div><a href={props.myDetails.html_url} target="_blank" rel="noopener noreferrer"><Icon name="globe" color="grey" /> {(props.myDetails.html_url) ? props.myDetails.html_url.split('//')[1] : ''}</a></div>
             <div><Icon name="map marker alternate" color="grey" /> {props.myDetails.location}</div>
             <div className="calendar"></div>
         </>
