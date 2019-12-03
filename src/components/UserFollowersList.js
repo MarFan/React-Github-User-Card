@@ -7,8 +7,8 @@ const UserFollowers = (props) => {
     return (
         <>
             <Grid.Row>
-                <Header as='h3'>
-                    Loyal Followers ({props.myFollowers.length})
+                <Header as='h3' style={{marginBottom: '1rem'}}>
+                    Loyal Followers {(props.myFollowers.length) ? `(${props.myFollowers.length})` : ''}
                 </Header>
             </Grid.Row>
             <Grid.Row>
