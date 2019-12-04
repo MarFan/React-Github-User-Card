@@ -51,7 +51,7 @@ class App extends React.Component {
           <Grid>
             <Grid.Row>
               <Grid.Column width={6}>
-                <UserCard myDetails={this.state.myDetails} />
+                <UserCard myDetails={this.state.myDetails} myFollowers={this.state.myFollowers.length} />
               </Grid.Column>
               <Grid.Column width={10}>
                 <UserFollowers myFollowers={this.state.myFollowers} searchUsers={this.searchUsers} />

@@ -3,7 +3,8 @@ import React from 'react';
 import 'github-calendar/dist/github-calendar-responsive.css';
 import GitHubCalendar from 'github-calendar';
 
-import { Header, Image, Icon } from 'semantic-ui-react';
+import { Header, Image, Icon, Button, Label } from 'semantic-ui-react';
+import axios from 'axios';
 
 const UserCard = (props) => {
 
@@ -18,6 +19,15 @@ const UserCard = (props) => {
                     <Header.Subheader>
                     {props.myDetails.login}
                     </Header.Subheader>
+
+                    <Button as="div" labelPosition="right" fluid style={{marginTop: '1rem', marginBottom: '1rem'}} onClick={() => window.open(`https://github.com/${props.myDetails.login}`) }>
+                        <Button basic color="blue" fluid>
+                            Follow
+                        </Button>
+                        <Label as="a" color="blue" pointing="left">
+                            {props.myFollowers}
+                        </Label>
+                    </Button>
                 </Header.Content>
             </Header>
             

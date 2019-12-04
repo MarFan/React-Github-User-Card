@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../lambdalogo.png';
 
-import { Container, Menu, Form, Dropdown } from 'semantic-ui-react';
+import { Container, Menu, Form } from 'semantic-ui-react';
 
 class FollowersHeader extends React.Component {
     state = {
