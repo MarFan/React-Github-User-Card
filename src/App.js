@@ -13,7 +13,8 @@ class App extends React.Component {
   state = {
     myDetails: [],
     myFollowers: [],
-    userSearch: ''
+    userSearches: [],
+    currentUser: ''
   }
 
   componentDidMount() {
@@ -27,24 +28,25 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.userSearch !== this.state.userSearch) {
+    if (prevState.currentUser !== this.state.currentUser) {
+      this.setState({userSearches: [...this.state.userSearches, this.state.currentUser]});
       // Get new User Info
-      axios.get(`https://api.github.com/users/${this.state.userSearch}`)
+      axios.get(`https://api.github.com/users/${this.state.currentUser}`)
         .then(res => this.setState({myDetails: res.data}));
 
-      axios.get(`https://api.github.com/users/${this.state.userSearch}/followers`)
+      axios.get(`https://api.github.com/users/${this.state.currentUser}/followers`)
         .then(res => this.setState({myFollowers: res.data}));
     }
   }
 
   searchUsers = search => {
-    this.setState({userSearch: search});
+    this.setState({currentUser: search});
   }
 
   render() {
     return (
       <>
-        <HeaderMenu searchUsers={this.searchUsers} />
+        <HeaderMenu searchUsers={this.searchUsers} searches={this.state.userSearches} />
         <Container className="App">
           <Grid>
             <Grid.Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../lambdalogo.png';
 
-import { Container, Menu, Form } from 'semantic-ui-react';
+import { Container, Menu, Form, Dropdown } from 'semantic-ui-react';
 
 class FollowersHeader extends React.Component {
     state = {
@@ -26,6 +26,11 @@ class FollowersHeader extends React.Component {
                         <img src={logo} alt="Lambda School logo" />
                     </Menu.Item>
                     <Menu.Menu position="right">
+                        {/* <Menu.Item>
+                            <Form onSubmit={this.handleSubmit}>
+                                <Dropdown text="Search History" options={this.props.searches} simple item />
+                            </Form>
+                        </Menu.Item> */}
                         <Menu.Item>
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group style={{marginBottom: 0}}>
