@@ -1,0 +1,13 @@
+.App {
+  margin-top: 2rem;
+}
+
+.column:hover .card {cursor: pointer;}
+
+.calendar {min-height: 100px; margin-top: 1rem;}
+
+.contrib-column {
+  display: none;
+}
+
+.contrib-footer .float-left{display: none;}

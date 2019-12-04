@@ -1,0 +1,42 @@
+import React from 'react';
+
+import 'github-calendar/dist/github-calendar-responsive.css';
+import GitHubCalendar from 'github-calendar';
+
+import { Header, Image, Icon, Button, Label } from 'semantic-ui-react';
+import axios from 'axios';
+
+const UserCard = (props) => {
+
+    GitHubCalendar('.calendar', props.myDetails.login, {responsive: true});
+
+    return (
+        <>
+            <Image src={props.myDetails.avatar_url} alt={props.myDetails.login} size='medium' />
+            <Header as='h2'>
+                <Header.Content>
+                    {props.myDetails.name}
+                    <Header.Subheader>
+                    {props.myDetails.login}
+                    </Header.Subheader>
+
+                    <Button as="div" labelPosition="right" fluid style={{marginTop: '1rem', marginBottom: '1rem'}} onClick={() => window.open(`https://github.com/${props.myDetails.login}`) }>
+                        <Button basic color="blue" fluid>
+                            Follow
+                        </Button>
+                        <Label as="a" color="blue" pointing="left">
+                            {props.myFollowers}
+                        </Label>
+                    </Button>
+                </Header.Content>
+            </Header>
+            
+            <div>{props.myDetails.bio}</div>
+            <div><a href={props.myDetails.html_url} target="_blank" rel="noopener noreferrer"><Icon name="globe" color="grey" /> {(props.myDetails.html_url) ? props.myDetails.html_url.split('//')[1] : ''}</a></div>
+            <div><Icon name="map marker alternate" color="grey" /> {props.myDetails.location}</div>
+            <div className="calendar"></div>
+        </>
+    )
+}
+
+export default UserCard;
